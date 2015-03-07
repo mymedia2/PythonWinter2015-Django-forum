@@ -6,17 +6,19 @@
             <p>You are anonymous.</p>
         {% endif %}
 
-        {% for message in messages %}
         <ul>
+        {% for msg in messages %}
             <li>
-                {{ message.text|upper }}
+                {{ msg.text }}
+                <time> {{ msg.datetime }} </time>
             </li>
-        </ul>
         {% endfor %}
+        </ul>
 
-        <p>
-            This is a forum template.
-        </p>
+        <form action="" method="post">
+            <textarea name="text" rows=5 cols=50 placeholder="Type a message..."></textarea>
+            <input type="submit" value="Send">
+        </form>
 
         {% if user.is_authenticated %}
             <a href="/logout">logout</a>.

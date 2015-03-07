@@ -1,12 +1,8 @@
-
 from django.shortcuts import render
+
 from django.contrib.auth.models import User
-
 from django.http import HttpResponseRedirect
-
 from django.contrib import auth
-
-from main.models import Message
 
 def register(request):
     if request.method == 'POST':
@@ -45,10 +41,6 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect("/forum")
-
-def forum(request):
-    messages = Message.objects.all()
-    return render(request, 'forum.html', {'messages': messages})
 
 def home(request):
     if request.user.is_authenticated():
