@@ -10,12 +10,21 @@
         {% for msg in messages %}
             <li>
                 {{ msg.text }}
-                <time> {{ msg.datetime }} </time>
+                <time>{{ msg.datetime }}</time>
+                {% if msg.author %}
+                    <div class="author" title="{{ msg.author.get_full_name }}">
+                        {{ msg.author.get_username }}
+                    </div>
+                {% else %}
+                    <div class="author">
+                        <i>anonymous</i>
+                    </div>
+                {% endif %}
             </li>
         {% endfor %}
         </ul>
 
-        <form action="./send" method="post">
+        <form action="send" method="post">
             <textarea name="text" rows=5 cols=50 placeholder="Type a message..."></textarea>
             <input type="submit" value="Send">
         </form>

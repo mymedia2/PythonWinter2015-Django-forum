@@ -1,11 +1,8 @@
 from django.db import models
 
-class MessageManager(models.Manager):
-    def create_message(self, text):
-        return Message(text=text)
+from django.contrib.auth.models import User
 
 class Message(models.Model):
     text = models.TextField()
+    author = models.ForeignKey(User, db_index=False, null=True, on_delete=models.SET_NULL)
     datetime = models.DateTimeField(auto_now_add=True)
-
-    objects = MessageManager()
