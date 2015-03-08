@@ -1,7 +1,8 @@
 from django.db import models
 
+from django.contrib.auth.models import User
+
 class Message(models.Model):
     text = models.TextField()
-
-    def __str__(self):
-        return self.text
+    author = models.ForeignKey(User, db_index=False, null=True, on_delete=models.SET_NULL)
+    datetime = models.DateTimeField(auto_now_add=True)
