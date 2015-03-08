@@ -24,6 +24,10 @@
         {% endfor %}
         </ul>
 
+        {% if errors %}
+            <p class="error">{{ errors }}</p>
+        {% endif %}
+
         <form action="send" method="post">
             <textarea name="text" rows=5 cols=50 placeholder="Type a message..."></textarea>
             <input type="submit" value="Send">
