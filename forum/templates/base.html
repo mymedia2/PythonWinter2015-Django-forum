@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    {% comment "Подумать, что с этим делать" %}
+    <head>
+        <title>{% block title %}Page{% endblock %} - Project</title>
+    </head>
+    {% endcomment %}
+    <body>
+        {% if errors %}
+            <div class="errors">{{ errors }}</div>
+        {% endif %}
+        <h1>{% block title %}Page{% endblock %}</h1>
+        <nav>{% block navigation %}
+            <a href="/forum">Forum</a>
+            <a href="//ya.ru">Somewhere</a>
+        {% endblock %}</nav>
+        <main>{% block content %}
+            <b>Empty page</b>
+        {% endblock %}</main>
+    </body>
+</head>
