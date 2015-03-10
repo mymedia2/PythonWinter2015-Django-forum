@@ -11,7 +11,7 @@
         {% endif %}
         <h1>{% block title %}Page{% endblock %}</h1>
         <nav>{% block navigation %}
-            <a href="/forum">Forum</a>
+            <a href="{% url 'main.views.forum' %}">Forum</a>
             <a href="//ya.ru">Somewhere</a>
         {% endblock %}</nav>
         <main>{% block content %}
